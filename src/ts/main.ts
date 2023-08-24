@@ -9,9 +9,9 @@ drawPoints(svg);
 
 svg.on("click", function (event) {
   // Get mouse positions relative to the SVG container
-  const [x, y] = d3.pointer(event);
-  const scaledX = (x - width / 2) / 20;
-  const scaledY = -(y - height / 2) / 20;
+  const [x, y]: [number, number] = d3.pointer(event);
+  const scaledX: number = (x - width / 2) / 20;
+  const scaledY: number = -(y - height / 2) / 20;
 
   data.push({ x: scaledX, y: scaledY });
   drawPoints(svg);

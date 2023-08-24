@@ -1,24 +1,25 @@
-import * as d3 from 'd3';
+import { Axis, BaseType, NumberValue, ScaleLinear, Selection } from 'd3';
+import { axisBottom, axisLeft, scaleLinear, select } from 'd3';
 
 import data from "./data";
 
 // Set up dimensions
-const width = 800;
-const height = 800;
+const width: number = 800;
+const height: number = 800;
 
-let xScale, yScale;
+let xScale: ScaleLinear<number, number>, yScale: ScaleLinear<number, number>;
 
 function initialize() {
   // Create SVG container
-  const svg = d3
-    .select("#xy-graph")
+  const svg: Selection<BaseType, unknown, HTMLElement, any> = 
+    select("#xy-graph")
     .attr("width", width)
     .attr("height", height);
 
   // Create scales
-  xScale = d3.scaleLinear().domain([-20, 20]).range([0, width]);
+  xScale = scaleLinear().domain([-20, 20]).range([0, width]);
 
-  yScale = d3.scaleLinear().domain([-20, 20]).range([height, 0]);
+  yScale = scaleLinear().domain([-20, 20]).range([height, 0]);
 
   const xAxisGroup = svg
     .append("g")
@@ -30,8 +31,8 @@ function initialize() {
     .attr("class", "y-axis")
     .attr("transform", `translate(${width / 2}, 0)`);
 
-  const xAxis = d3.axisBottom(xScale);
-  const yAxis = d3.axisLeft(yScale);
+  const xAxis: Axis<NumberValue> = axisBottom(xScale);
+  const yAxis = axisLeft(yScale);
 
   xAxisGroup.call(xAxis);
   yAxisGroup.call(yAxis);
@@ -40,7 +41,7 @@ function initialize() {
 
 // Create circles based on data
 function drawPoints(svg) {
-  const circles = svg.selectAll("circle").data(data);
+  const circles: Selection<SVGCircleElement, { x: number, y: number }, SVGSVGElement, any> = svg.selectAll("circle").data(data);
 
   // Handle the enter selection - for new data points
   circles
