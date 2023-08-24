@@ -1,4 +1,6 @@
-const data = require("./data");
+import * as d3 from 'd3';
+
+import data from "./data";
 
 // Set up dimensions
 const width = 800;
@@ -58,4 +60,4 @@ function drawPoints(svg) {
   circles.exit().remove();
 }
 
-module.exports = { drawPoints, initialize, width, height };
+export { drawPoints, initialize, width, height };
