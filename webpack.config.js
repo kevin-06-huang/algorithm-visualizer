@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: [
     // entry point of our app
-    './src/js/main.js',
+    './src/ts/main.ts',
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -36,7 +36,6 @@ module.exports = {
     }),
   ],
   resolve: {
-    // Enable importing JS / JSX files without specifying their extension
-    extensions: ['.js'],
+    extensions: ['.js', '.ts'],
   },
 };
