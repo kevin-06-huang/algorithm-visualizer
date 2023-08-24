@@ -6,6 +6,7 @@ import data from "./data";
 // Set up dimensions
 const width: number = 800;
 const height: number = 800;
+const radius: number = 3;
 
 let xScale: ScaleLinear<number, number>, yScale: ScaleLinear<number, number>;
 
@@ -49,13 +50,13 @@ function drawPoints(svg) {
     .append("circle")
     .attr("cx", (d) => xScale(d.x))
     .attr("cy", (d) => yScale(d.y))
-    .attr("r", 3);
+    .attr("r", radius);
 
   // Handle the update selection - for existing data points
   circles
     .attr("cx", (d) => xScale(d.x))
     .attr("cy", (d) => yScale(d.y))
-    .attr("r", 3);
+    .attr("r", radius);
 
   // Handle the exit selection - for data points that no longer exist
   circles.exit().remove();
