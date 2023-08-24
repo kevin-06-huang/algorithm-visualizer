@@ -53,7 +53,7 @@ function drawPoints() {
 
 drawPoints();
 
-svg.on("click", function (event) {
+svg.on("click", function () {
   // Get mouse positions relative to the SVG container
   const [x, y] = d3.mouse(this);
   const scaledX = (x - 400) / 20;

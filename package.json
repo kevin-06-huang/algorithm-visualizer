@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
+    "start": "webpack-dev-server --hot",
+    "dev": "nodemon ./server.js",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet"
   },
@@ -15,6 +16,12 @@
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
-    "prettier": "^3.0.2"
+    "express": "^4.18.2",
+    "html-webpack-plugin": "^5.5.3",
+    "path": "^0.12.7",
+    "prettier": "^3.0.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
