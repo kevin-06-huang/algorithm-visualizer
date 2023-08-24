@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot",
-    "dev": "nodemon ./server.js",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet"
   },
