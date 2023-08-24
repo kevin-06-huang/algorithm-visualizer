@@ -1,10 +1,6 @@
 // Sample data
 const data = [
-  { x: 10, y: 10 },
-  { x: -10, y: 10 },
-  { x: 10, y: -10 },
-  { x: -10, y: -10 },
-  // ...
+  { x: 0, y: 0 }
 ];
 
 // Set up dimensions
@@ -40,10 +36,35 @@ xAxisGroup.call(xAxis);
 yAxisGroup.call(yAxis);
 
 // Create circles based on data
-svg.selectAll("circle")
- .data(data)
- .enter()
- .append("circle")
- .attr("cx", d => xScale(d.x))
- .attr("cy", d => yScale(d.y))
- .attr("r", 5);
+function drawPoints() {
+  const circles = svg.selectAll("circle")
+    .data(data);
+
+  // Handle the enter selection - for new data points
+  circles.enter()
+    .append("circle")
+    .attr("cx", d => xScale(d.x))
+    .attr("cy", d => yScale(d.y))
+    .attr("r", 5);
+
+  // Handle the update selection - for existing data points
+  circles
+    .attr("cx", d => xScale(d.x))
+    .attr("cy", d => yScale(d.y))
+    .attr("r", 5);
+
+  // Handle the exit selection - for data points that no longer exist
+  circles.exit().remove();
+}
+
+drawPoints();
+
+svg.on("click", function(event) {
+  // Get mouse positions relative to the SVG container
+  const [x, y] = d3.mouse(this);
+  const scaledX = (x - 400)/20;
+  const scaledY = -(y - 400)/20;
+
+  data.push({ x: scaledX, y: scaledY });
+  drawPoints();
+});
