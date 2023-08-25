@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import * as d3 from "d3";
 
 import data from "./data";
 import { drawPoints, initialize, width, height } from "./visualization";

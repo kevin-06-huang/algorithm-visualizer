@@ -1,4 +1,4 @@
-import { Point } from '../../types';
+import { Point } from "../../types";
 
 const data: Point[] = [{ x: 0, y: 0 }];
 

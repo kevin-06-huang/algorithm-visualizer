@@ -1,5 +1,5 @@
-import { Axis, BaseType, NumberValue, ScaleLinear, Selection } from 'd3';
-import { axisBottom, axisLeft, scaleLinear, select } from 'd3';
+import { Axis, BaseType, NumberValue, ScaleLinear, Selection } from "d3";
+import { axisBottom, axisLeft, scaleLinear, select } from "d3";
 
 import data from "./data";
 
@@ -12,8 +12,9 @@ let xScale: ScaleLinear<number, number>, yScale: ScaleLinear<number, number>;
 
 function initialize() {
   // Create SVG container
-  const svg: Selection<BaseType, unknown, HTMLElement, any> = 
-    select("#xy-graph")
+  const svg: Selection<BaseType, unknown, HTMLElement, any> = select(
+    "#xy-graph",
+  )
     .attr("width", width)
     .attr("height", height);
 
@@ -42,7 +43,12 @@ function initialize() {
 
 // Create circles based on data
 function drawPoints(svg) {
-  const circles: Selection<SVGCircleElement, { x: number, y: number }, SVGSVGElement, any> = svg.selectAll("circle").data(data);
+  const circles: Selection<
+    SVGCircleElement,
+    { x: number; y: number },
+    SVGSVGElement,
+    any
+  > = svg.selectAll("circle").data(data);
 
   // Handle the enter selection - for new data points
   circles
