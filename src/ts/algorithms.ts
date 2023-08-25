@@ -22,7 +22,7 @@ function heldKarp(dists: number[][]): [number, number[][]] {
     for (let u = 0; u < n; u++) {
       if (!(mask & (1 << u))) continue;
 
-      // Try to find the shortest path to city `u` 
+      // Try to find the shortest path to city `u`
       // by considering all possible previous cities `v`
       for (let v = 0; v < n; v++) {
         if (mask & (1 << v) && u != v) {
