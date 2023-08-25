@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 
 import data from "./data";
-import { drawPoints, initialize, width, height } from "./visualization";
+import { drawLine, drawPoints, initialize, width, height } from "./visualization";
 import { distance, heldKarp, backtrack } from "./algorithms";
 
 const svg = initialize();
@@ -26,4 +26,5 @@ svg.on("click", function (event) {
   // console.log("Route:", route.map(idx => data[idx]));
 
   drawPoints(svg);
+  drawLine(svg, route);
 });

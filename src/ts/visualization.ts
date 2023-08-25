@@ -1,5 +1,6 @@
 import { Axis, BaseType, NumberValue, ScaleLinear, Selection } from "d3";
-import { axisBottom, axisLeft, scaleLinear, select } from "d3";
+import { axisBottom, axisLeft, line, scaleLinear, select } from "d3";
+import { Point } from "../../types";
 
 import data from "./data";
 
@@ -68,4 +69,21 @@ function drawPoints(svg) {
   circles.exit().remove();
 }
 
-export { drawPoints, initialize, width, height };
+function drawLine(svg, route) {
+  const svgLine = line<Point>()
+    .x(d => d.x * 20 + width / 2)
+    .y(d => -d.y * 20 + height / 2);
+  // Remove previous lines
+  svg.selectAll(".path").remove();
+
+  // Draw new lines based on the given route
+  svg.append("path")
+      .datum(route.map(idx => data[idx]))
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 1.5)
+      .attr("class", "path")
+      .attr("d", svgLine);
+}
+
+export { drawLine, drawPoints, initialize, width, height };
