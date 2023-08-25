@@ -3,4 +3,4 @@ type Point = {
   y: number;
 };
 
-export { Point }
+export { Point };
