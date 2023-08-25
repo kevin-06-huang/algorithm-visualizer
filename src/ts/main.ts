@@ -1,7 +1,13 @@
 import * as d3 from "d3";
 
 import data from "./data";
-import { drawLine, drawPoints, initialize, width, height } from "./visualization";
+import {
+  drawLine,
+  drawPoints,
+  initialize,
+  width,
+  height,
+} from "./visualization";
 import { distance, heldKarp, backtrack } from "./algorithms";
 
 const svg = initialize();
@@ -22,8 +28,11 @@ svg.on("click", function (event) {
 
   const [minDistance, dp] = heldKarp(dists);
   const route: number[] = backtrack(dists, dp);
-  // console.log("Minimum Distance:", minDistance);
-  // console.log("Route:", route.map(idx => data[idx]));
+  console.log("Minimum Distance:", minDistance);
+  console.log(
+    "Route:",
+    route.map((idx) => data[idx]),
+  );
 
   drawPoints(svg);
   drawLine(svg, route);
