@@ -35,7 +35,7 @@ function initialize() {
     .attr("transform", `translate(${width / 2}, 0)`);
 
   const xAxis: Axis<NumberValue> = axisBottom(xScale);
-  const yAxis = axisLeft(yScale);
+  const yAxis: Axis<NumberValue> = axisLeft(yScale);
 
   xAxisGroup.call(xAxis);
   yAxisGroup.call(yAxis);
