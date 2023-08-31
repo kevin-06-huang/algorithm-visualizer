@@ -70,7 +70,7 @@ function backtrack(dists: number[][], dp: number[][]): number[] {
   }
 
   // Append the starting city to form a complete cycle
-  tour.push(tour[0]);
+  tour.push(0);
   return tour;
 }
 
