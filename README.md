@@ -17,3 +17,9 @@ A dynamic visualization tool for understanding and analyzing the Held-Karp Algor
 
 1. Run `npm start` to start the server on port 8000.
 2. Access the demo application in your web browser at `http://localhost:8000`.
+
+## Todo
+
+1. Add heuristic approximation to Held-Karp algorithm so n>24 can be found; suggestion: branch and bound
+2. For extensibility, make the algorithms language-agnostic. Maybe incorporate wasm.
+3. Add more algorithms (Dijkstra) and options to switch between different visualization.
