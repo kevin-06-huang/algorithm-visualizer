@@ -22,4 +22,4 @@ A dynamic visualization tool for understanding and analyzing the Held-Karp Algor
 
 1. Add heuristic approximation to Held-Karp algorithm so n>24 can be found; suggestion: branch and bound
 2. For extensibility, make the algorithms language-agnostic. Maybe incorporate wasm.
-3. Add more algorithms (Dijkstra, Monte Carlo) and options to switch between different visualization.
+3. Add more algorithms (Dijkstra, Monte Carlo, Manacher) and options to switch between different visualization.
